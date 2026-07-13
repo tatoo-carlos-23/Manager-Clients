@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<div>
+  <ng-container *ngIf="myInfo$ | async as user">
+    <app-header [user]="user" (logout)="handlerLogout()" />
+  </ng-container>
+  <div>
+    <router-outlet />
+  </div>
+</div>

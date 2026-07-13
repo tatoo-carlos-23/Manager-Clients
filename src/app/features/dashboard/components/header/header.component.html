@@ -1,0 +1,17 @@
+<nav class="container-header">
+  <div class="container-header_content">
+    <div class="container-header_content_left">
+      <span>
+        <strong>
+          {{ user.fullName }}
+        </strong>
+      </span>
+    </div>
+    <div class="container-header_content_right">
+      <nz-avatar [nzText]="user.firstLetter" />
+      <span class="container-header_content_right_close" (click)="onLogout()">
+        Cerrar sesión
+      </span>
+    </div>
+  </div>
+</nav>

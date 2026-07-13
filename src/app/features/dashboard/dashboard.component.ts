@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthApiService } from '@mc/api/auth';
 
 @Component({
@@ -7,9 +8,18 @@ import { AuthApiService } from '@mc/api/auth';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  constructor(private readonly authApiService: AuthApiService) {
-    this.authApiService.myInfo().subscribe((r) => {
-      console.warn('===> ', r);
-    });
+  public myInfo$ = this.authApiService.myInfo();
+  constructor(
+    public readonly authApiService: AuthApiService,
+    private readonly router: Router,
+  ) {
+    // this.authApiService.myInfo().subscribe((r) => {
+    //   console.warn('===> ', r);
+    // });
+  }
+
+  async handlerLogout() {
+    await this.authApiService.logout();
+    this.router.navigate([`/`]);
   }
 }
