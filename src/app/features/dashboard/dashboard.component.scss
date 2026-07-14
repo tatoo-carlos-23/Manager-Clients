@@ -7,10 +7,16 @@
     top: 0;
   }
 
-  &_body { 
-    padding: 20px 0px;
-    min-width: 1200px;
-    max-width: 1200px;
+  &_body {
+    padding: 20px;
+    width: 100dvw;
     margin: 0px auto;
+
+    @media (min-width: 1250px) {
+      min-width: 1200px;
+      max-width: 1200px;
+      padding: 20px 0px;
+      width: 1200px;
+    }
   }
 }

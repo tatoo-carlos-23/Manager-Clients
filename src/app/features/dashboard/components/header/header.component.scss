@@ -8,9 +8,14 @@
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    padding: 0px;
-    max-width: 1200px;
+    padding: 10px 20px;
     margin: 0px auto;
+
+    @media (min-width: 1250px) {
+      max-width: 1200px;
+      min-width: 1200px;
+      padding: 0px;
+    }
 
     &_left {
       span {
@@ -20,9 +25,14 @@
 
     &_right {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
+
+      @media (min-width: 1250px) {
+        gap: 10px;
+        flex-direction: row;
+      }
 
       nz-avatar {
         background-color: var(--color-primary);

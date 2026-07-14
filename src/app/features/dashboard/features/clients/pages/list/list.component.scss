@@ -23,15 +23,24 @@
   &_content {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
+
+    @media (min-width: 1250px) {
+      flex-wrap: wrap;
+      flex-direction: initial;
+    }
 
     &_child {
       display: flex;
       flex-direction: row;
       gap: 20px;
-      width: 450px;
+      width: 100%;
       position: relative;
+
+      @media (min-width: 1250px) {
+        width: 450px;
+      }
 
       &_info {
         display: flex;
