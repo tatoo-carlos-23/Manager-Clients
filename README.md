@@ -1,27 +1,75 @@
 # ManagerClients
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+ManagerClients es una aplicacion web para gestionar clientes por usuario autenticado.
 
-## Development server
+La aplicacion permite iniciar sesion con Google, ingresar a un dashboard y administrar una lista personal de clientes. Cada cliente queda asociado al usuario que lo registro, por lo que cada cuenta ve solo sus propios datos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## URL de la aplicacion
 
-## Code scaffolding
+La aplicacion desplegada esta disponible en:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```text
+https://managerclients-def89.firebaseapp.com/
+```
 
-## Build
+## Contexto de la aplicacion
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+El objetivo principal es registrar y mantener informacion basica de clientes:
 
-## Running unit tests
+- Nombres
+- Apellidos
+- Fecha de nacimiento
+- Edad calculada automaticamente a partir de la fecha de nacimiento
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Desde el dashboard se pueden realizar las acciones principales de mantenimiento:
 
-## Running end-to-end tests
+- Listar clientes registrados
+- Crear nuevos clientes
+- Editar clientes existentes
+- Eliminar clientes con confirmacion
+- Cerrar sesion
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Flujo principal
 
-## Further help
+1. El usuario ingresa a la aplicacion.
+2. Si no tiene sesion activa, puede autenticarse con Google.
+3. Si la sesion es valida, se redirige al dashboard.
+4. En el dashboard se muestra la informacion del usuario autenticado.
+5. El usuario administra su lista de clientes.
+6. Los registros se guardan en Firebase Firestore asociados al `userId` del usuario.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Tecnologias
+
+- Angular 15
+- AngularFire
+- Firebase Authentication
+- Firebase Firestore
+- NG-ZORRO
+- RxJS
+- TypeScript
+
+## Estructura general
+
+- `src/app/features/auth`: flujo de autenticacion con Google.
+- `src/app/features/dashboard`: contenedor principal para usuarios autenticados.
+- `src/app/features/dashboard/features/clients`: listado, creacion, edicion y eliminacion de clientes.
+- `src/app/core/api`: servicios de comunicacion con Firebase.
+- `src/app/core/guards`: proteccion de rutas publicas y privadas.
+- `src/app/core/states`: estado del usuario autenticado.
+
+## Firebase
+
+La aplicacion usa Firebase para:
+
+- Autenticar usuarios con Google.
+- Guardar clientes en Firestore.
+
+La coleccion principal de clientes es `CLIENTS`.
+
+## Servidor de desarrollo
+
+Ejecuta:
+
+```bash
+npm start
+```
