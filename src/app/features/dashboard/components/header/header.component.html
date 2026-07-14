@@ -9,7 +9,13 @@
     </div>
     <div class="container-header_content_right">
       <nz-avatar [nzText]="user.firstLetter" />
-      <span class="container-header_content_right_close" (click)="onLogout()">
+      <span
+        class="container-header_content_right_close"
+        nz-popconfirm
+        nzPopconfirmTitle="Esta seguro de cerrar sesión?"
+        nzPopconfirmPlacement="bottom"
+        (nzOnConfirm)="onLogout()"
+      >
         Cerrar sesión
       </span>
     </div>
