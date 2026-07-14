@@ -15,6 +15,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { DeleteModalComponent } from './modals/delete-modal/delete-modal.component';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DeleteModalComponent } from './modals/delete-modal/delete-modal.compone
     NzFormModule,
     NzDatePickerModule,
     NzMessageModule,
+    NzEmptyModule,
   ],
 })
 export class ClientsModule {}
