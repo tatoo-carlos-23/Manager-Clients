@@ -1,8 +1,10 @@
-<div>
-  <ng-container *ngIf="myInfo$ | async as user">
-    <app-header [user]="user" (logout)="handlerLogout()" />
-  </ng-container>
-  <div>
+<div class="container-dashboard">
+  <div class="container-dashboard_header">
+    <ng-container *ngIf="myInfo$ | async as user">
+      <app-header [user]="user" (logout)="handlerLogout()" />
+    </ng-container>
+  </div>
+  <div class="container-dashboard_body">
     <router-outlet />
   </div>
 </div>

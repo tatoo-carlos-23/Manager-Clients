@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -32,6 +33,9 @@
       ],
       "@mc/guards/*": [
         "src/app/core/guards/*"
+      ],
+      "@mc/states/*": [
+        "src/app/core/states/*"
       ]
     }
   },

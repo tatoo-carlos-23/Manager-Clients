@@ -14,12 +14,12 @@ export class AuthApiService {
     const provider = new firebase.auth.GoogleAuthProvider();
     return from(this.angularFireAuth.signInWithPopup(provider)).pipe<
       UserAuthModel | undefined
-    >(map((r) => (r ? new UserAuthModel(r.user?.displayName) : undefined)));
+    >(map((r) => (r ? new UserAuthModel(r.user) : undefined)));
   }
 
   public myInfo() {
     return this.angularFireAuth.authState.pipe<UserAuthModel | undefined>(
-      map((r) => (r ? new UserAuthModel(r?.displayName) : undefined)),
+      map((r) => (r ? new UserAuthModel(r) : undefined)),
     );
   }
 

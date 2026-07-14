@@ -6,6 +6,25 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'clients',
+        pathMatch: 'full',
+      },
+      {
+        path: '',
+        loadChildren: () =>
+          import('./features/home/home.module').then((r) => r.HomeModule),
+      },
+      {
+        path: 'clients',
+        loadChildren: () =>
+          import('./features/clients/clients.module').then(
+            (r) => r.ClientsModule,
+          ),
+      },
+    ],
   },
 ];
 

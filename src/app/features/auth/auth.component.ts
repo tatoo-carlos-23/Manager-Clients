@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthApiService } from '@mc/api/auth';
+import { UserAuthState } from '@mc/states/user-auth-state.service';
 import { lastValueFrom, Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -14,6 +15,7 @@ export class AuthComponent implements OnDestroy {
   constructor(
     private readonly authApiService: AuthApiService,
     private readonly router: Router,
+    private readonly userAuthState: UserAuthState,
   ) {}
 
   ngOnDestroy(): void {

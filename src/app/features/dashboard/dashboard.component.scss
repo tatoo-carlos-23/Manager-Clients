@@ -1,0 +1,16 @@
+.container-dashboard {
+  display: flex;
+  flex-direction: column;
+
+  &_header {
+    position: sticky;
+    top: 0;
+  }
+
+  &_body { 
+    padding: 20px 0px;
+    min-width: 1200px;
+    max-width: 1200px;
+    margin: 0px auto;
+  }
+}

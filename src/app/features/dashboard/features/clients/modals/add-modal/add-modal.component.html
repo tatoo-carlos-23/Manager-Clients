@@ -1,0 +1,61 @@
+<div class="container-add-modal">
+  <form class="container-add-modal_body" [formGroup]="addModalPresenter.form">
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="22" nzFor="names" nzRequired>
+        <span>Nombres</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el nombre">
+        <input nz-input id="names" formControlName="names" [maxlength]="30" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="22" nzFor="lastNames" nzRequired>
+        <span>Apellidos</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el apellido">
+        <input
+          nz-input
+          id="lastNames"
+          formControlName="lastNames"
+          [maxlength]="30"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="22" nzRequired>
+        Fecha de nacimiento
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese la fecha">
+        <nz-date-picker formControlName="birthDate"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <div class="container-add-modal_footer">
+    <button
+      nz-button
+      nzType="dashed"
+      (click)="cancel()"
+      [disabled]="isLoading$ | async"
+    >
+      Cancelar
+    </button>
+    <button
+      nz-button
+      nzType="primary"
+      (click)="
+        continue(nzModalData.client?.id ? clientUpdateOk : clientRegisterOk)
+      "
+      [nzLoading]="isLoading$ | async"
+    >
+      {{ nzModalData.client?.id ? "Actualizar" : "Continuar" }}
+    </button>
+  </div>
+</div>
+
+<ng-template #clientRegisterOk>
+  Cliente <strong>registrado</strong> exitosamente
+</ng-template>
+
+<ng-template #clientUpdateOk>
+  Cliente <strong>actualizado</strong> exitosamente
+</ng-template>

@@ -18,7 +18,7 @@ registerLocaleData(es);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.configFirebase),
+    AngularFireModule.initializeApp(environment.configFirebase.apiKeys),
     HttpClientModule,
     BrowserAnimationsModule,
   ],

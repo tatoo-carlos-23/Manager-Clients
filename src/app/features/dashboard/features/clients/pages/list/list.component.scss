@@ -1,0 +1,61 @@
+.container-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &_head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    span {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  &_content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &_child {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 450px;
+      position: relative;
+
+      &_info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      &_icon-client {
+        color: var(--color-primary);
+        font-weight: bold;
+        margin-top: 6px;
+        font-size: 20px;
+      }
+
+      &_delete {
+        position: absolute;
+        font-size: 24px;
+        color: var(--color-error);
+        right: 0;
+      }
+
+      &_edit {
+        position: absolute;
+        font-size: 24px;
+        color: var(--color-primary);
+        right: 0;
+        top: 40px;
+      }
+    }
+  }
+}

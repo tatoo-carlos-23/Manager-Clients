@@ -1,0 +1,19 @@
+.container-delete {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &_footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}

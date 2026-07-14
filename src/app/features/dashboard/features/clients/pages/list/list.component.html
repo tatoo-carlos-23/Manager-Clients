@@ -1,0 +1,49 @@
+<div class="container-list">
+  <div class="container-list_head">
+    <span> Lista de clientes </span>
+    <button nz-button nzType="primary" (click)="openModal()">Agregar</button>
+  </div>
+  <div class="container-list_content">
+    <ng-container *ngFor="let client of dataSource$ | async">
+      <nz-card [nzHoverable]="true">
+        <div class="container-list_content_child">
+          <span
+            class="container-list_content_child_icon-client"
+            nz-icon
+            nzType="user"
+            nzTheme="outline"
+          ></span>
+          <div class="container-list_content_child_info">
+            <span>
+              Nombres: <strong>{{ client.names }}</strong>
+            </span>
+            <span>
+              Apellidos: <strong>{{ client.lastNames }}</strong>
+            </span>
+            <span>
+              Años: <strong>{{ client.years }}</strong>
+            </span>
+            <span>
+              Fecha de nacimiento:
+              <strong>{{ client.birthDate | birthDate }}</strong>
+            </span>
+          </div>
+          <span
+            class="container-list_content_child_delete"
+            nz-icon
+            nzType="delete"
+            nzTheme="outline"
+            (click)="changeDelete(client)"
+          ></span>
+          <span
+            class="container-list_content_child_edit"
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+            (click)="openModal(client)"
+          ></span>
+        </div>
+      </nz-card>
+    </ng-container>
+  </div>
+</div>
